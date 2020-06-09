@@ -17,7 +17,7 @@ terraform {
 }
 
 module "gke" {
-  source = "/home/etua/k8s-training/tf/terraform-modules/modules/gcp/gke"
+  source = "git::git@github.com:eduartua/iac.git//terraform-modules/modules/gcp/gke?ref=v0.0.1"
   environment = var.environment
   gke_pods_secondary_range_name = module.vpc.gke_subnetwork_secondary_range_name_services
   gke_services_secondary_range_name = module.vpc.gke_subnetwork_secondary_range_name_pods
@@ -35,7 +35,7 @@ module "gke" {
       auto_upgrade = false
       min_node_count = 1
       max_node_count = 10
-      machine_type = "n1-standard-2"
+      machine_type = "n1-standard-1"
       disk_size_gb = "50"
       preemptible = false
       version = "1.14.6-gke.1"
@@ -44,7 +44,7 @@ module "gke" {
 }
 
 module "vpc" {
-  source = "/home/etua/k8s-training/tf/terraform-modules/modules/gcp/vpc"
+  source = "git::git@github.com:eduartua/iac.git//terraform-modules/modules/gcp/vpc?ref=v0.0.1"
   environment = var.environment
   network-prefix = var.network_prefix
   project = var.project

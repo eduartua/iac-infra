@@ -1,7 +1,7 @@
-environment = "dev"
+environment = "prod"
 
 # gcp values
-project = "dev-ktraining"
+project = "cncfmty"
 region = "us-central1"
 network_prefix = "10.128"
 

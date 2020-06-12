@@ -1,0 +1,17 @@
+controller:
+  replicaCount: 3
+
+  minAvailable: 1
+
+  resources:
+    limits:
+      cpu: 200m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+
+  autoscaling:
+    enabled: false
+    minReplicas: 2
+    maxReplicas: 11
